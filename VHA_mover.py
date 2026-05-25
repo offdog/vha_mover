@@ -19,7 +19,7 @@ WARNING = "#f5a623"
 ERROR   = "#e84393"
 WHITE   = "#ffffff"
 
-VERSION = "1.05"
+VERSION = "1.06"
 
 PIPELINE_BASE = r"S:\ANIMA\projects\VHA\pipeline\shots2d"
 SKIP_FOLDERS  = {"asset_tracking"}
@@ -625,6 +625,8 @@ class App(tk.Tk):
                 f"{skipped} skipped  |  {backed} backed up",
                 "ok" if errors == 0 else "warn"
             )
+            if errors == 0 and os.path.isdir(dst):
+                os.startfile(dst)
 
         except Exception as e:
             self.log(f"Fatal error: {e}", "err")

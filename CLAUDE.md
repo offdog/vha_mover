@@ -94,6 +94,9 @@ Detection uses regex `[/\\]lighting[/\\]([^/\\]+)` — exact segment match, so
 
 ## Changelog
 
+### v1.06 — 2026-05-25
+- Open destination folder in Explorer automatically after a successful (zero-error) move/copy
+
 ### v1.05 — 2026-05-12
 - Bottom bar: SURFACE2 bg + ACCENT border for contrast against dark BG
 - Bar track: BORDER fill + ACCENT2 border, height 18px
