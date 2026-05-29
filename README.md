@@ -1,4 +1,4 @@
-# VHA_mover v1.06
+# VHA_mover v1.07
 
 Desktop GUI tool for moving or copying rendered image folders from an artist's work area into the VHA pipeline destination, with automatic versioned backup of any files that would be overwritten.
 
@@ -13,11 +13,14 @@ Desktop GUI tool for moving or copying rendered image folders from an artist's w
 python VHA_mover.py
 ```
 
-1. **Browse** — pick the source folder (ep/shot/cut parsed automatically)
-2. **Type** — select render type (chara, bg, bgChaShw, interact, motionVector); auto-detected from path when possible
-3. **MOVE / COPY** — choose operation mode
-4. **Backup ON / OFF** — toggle automatic versioned backup of overwritten files
-5. **Run** — executes the operation; destination folder opens in Explorer on success
+1. **Pick shot** — choose `ep → shot → cut → type → user → v` from the cascading dropdowns
+   (each lists real folders on disk; the `\maya\images` segment is added automatically and
+   `v` is the version folder under it). The last-used username is remembered as the default,
+   and the latest version is auto-selected. A **Browse…** button is also available for
+   non-standard paths (ep/shot/cut and type are then parsed/auto-detected).
+2. **MOVE / COPY** — choose operation mode
+3. **Backup ON / OFF** — toggle automatic versioned backup of overwritten files
+4. **Run** — executes the operation; destination folder opens in Explorer on success
 
 ## Pipeline paths
 
@@ -40,7 +43,25 @@ python VHA_mover.py
 
 `{NN}` auto-increments (`01`, `02`, …).
 
+### Source structure
+
+```
+{WORK_BASE}\{ep}\{shot}\{cut}\lighting\{type}\{username}\maya\images\{version}
+```
+
+`{WORK_BASE}` = `S:\ANIMA\projects\VHA\Work\shots`; the `\maya\images` segment is fixed and
+`{version}` is the `v###` render folder under it.
+
 ## Changelog
+
+### v1.07 — 2026-05-29
+- Source input replaced with cascading dropdowns (`ep → shot → cut → type → user → v`) that list real folders on disk; `\maya\images` appended automatically, with the version (`v###`) folder as the 6th level (latest auto-selected)
+- Last source selection (`ep/shot/cut/type/user`) remembered and **restored automatically on launch** (stored in `%APPDATA%\VHA_mover\config.json`); version stays latest
+- Source type `default` is selectable and maps to destination type `chara`
+- **📂 Open** button in the SOURCE header opens the selected source folder in Explorer
+- Custom window/taskbar icon (folder + down-arrow, embedded — no external file)
+- **↻ Refresh** re-lists episodes; **Browse…** kept as a fallback for non-standard paths
+- Fixed: log output from background threads no longer mutates the UI cross-thread (Tcl-error/crash risk)
 
 ### v1.06 — 2026-05-25
 - Open destination folder in Explorer automatically after a successful (zero-error) move/copy
