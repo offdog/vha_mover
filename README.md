@@ -1,4 +1,4 @@
-# VHA_mover v1.07
+# VHA_mover v1.08
 
 Desktop GUI tool for moving or copying rendered image folders from an artist's work area into the VHA pipeline destination, with automatic versioned backup of any files that would be overwritten.
 
@@ -53,6 +53,9 @@ python VHA_mover.py
 `{version}` is the `v###` render folder under it.
 
 ## Changelog
+
+### v1.08 - 2026-06-02
+- Added `fx` and `effect` render types between `bgChaShw` and `interact`
 
 ### v1.07 — 2026-05-29
 - Source input replaced with cascading dropdowns (`ep → shot → cut → type → user → v`) that list real folders on disk; `\maya\images` appended automatically, with the version (`v###`) folder as the 6th level (latest auto-selected)

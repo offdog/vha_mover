@@ -53,6 +53,8 @@ Defined at module level. Each entry is `(display_label, folder_name)`.
 | chara | chara |
 | bg | bg |
 | bgChaShw | bgChaShw |
+| fx | fx |
+| effect | effect |
 | interact | interact |
 | motionVector | motionVector |
 
@@ -133,6 +135,9 @@ Detection uses regex `[/\\]lighting[/\\]([^/\\]+)` — exact segment match, so
 ---
 
 ## Changelog
+
+### v1.08 - 2026-06-02
+- Added `fx` and `effect` render types between `bgChaShw` and `interact`
 
 ### v1.07 — 2026-05-29
 - Source input replaced with cascading dropdowns (`ep → shot → cut → type → user → v`)

@@ -20,7 +20,7 @@ WARNING = "#f5a623"
 ERROR   = "#e84393"
 WHITE   = "#ffffff"
 
-VERSION = "1.07"
+VERSION = "1.08"
 
 PIPELINE_BASE = r"S:\ANIMA\projects\VHA\pipeline\shots2d"
 WORK_BASE     = r"S:\ANIMA\projects\VHA\Work\shots"
@@ -33,6 +33,8 @@ PATH_TYPES = [
     ("chara",        "chara"),
     ("bg",           "bg"),
     ("bgChaShw",     "bgChaShw"),
+    ("fx",           "fx"),
+    ("effect",       "effect"),
     ("interact",     "interact"),
     ("motionVector", "motionVector"),
 ]
